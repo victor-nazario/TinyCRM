@@ -59,7 +59,7 @@ public class NewClientController extends ClientController{
 		}
 		
 		if (!TelMatches) {
-			addValidationError("Company", "Company Telephone Must Only Use Numeric Characters and Follow The (123)-456-7890 Format");
+			addValidationError("Telephone", "Company Telephone Must Only Use Numeric Characters and Follow The (123)-456-7890 Format");
 		}
 	}
 	
@@ -76,14 +76,14 @@ public class NewClientController extends ClientController{
 		}
 		
 		if (!MailMatches) {
-			addValidationError("Company", "Company Email Must Only Use Alpha-Numeric Characters and Follow The username@domain.xxx Format");
+			addValidationError("Email", "Company Email Must Only Use Alpha-Numeric Characters and Follow The username@domain.xxx Format");
 		}
 	}
 	
 	public void validateWebsite() {
 		
 		String WebsiteInput = ((ClientTCRMView) getView()).getTextWebsite(); 
-		String alphaNumericPattern  = "^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
+		String alphaNumericPattern  = "[A-Za-z0-9](([_\\\\.\\\\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\\\\.\\\\-]?[a-zA-Z0-9]+)*)\\\\.([A-Za-z]{2,})";
 		boolean WebMatches = Pattern.matches(alphaNumericPattern, WebsiteInput);
 		
 		ClientTCRMView view = (ClientTCRMView) getView();
@@ -92,7 +92,7 @@ public class NewClientController extends ClientController{
 		}
 		
 		if (!WebMatches) {
-			addValidationError("Company", "Company Website Must Only Use Alpha=Numeric Characters");
+			addValidationError("Website", "Company Website Must Only Use Alpha=Numeric Characters");
 		}
 	}
 	
@@ -108,7 +108,7 @@ public class NewClientController extends ClientController{
 		}
 		
 		if (!FacebookMatches) {
-			addValidationError("Company", "Company Facebook Must Only Use Alpha Numeric Characters");
+			addValidationError("Facebook", "Company Facebook Must Only Use Alpha Numeric Characters");
 		}
 	}
 	
