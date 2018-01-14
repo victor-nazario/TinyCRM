@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import controllers.CRMController;
-import controllers.ClientController;
+import controllers.NewClientController;
 import controllers.ContactController;
 import models.CRMModel;
 import models.ClientModel;
@@ -19,7 +19,7 @@ public class CRMMain {
 	// Create Contacts module MVC objects
 	public static SwingView clientView = new ClientSwingView();
 	public static CRMModel clientModel = new ClientModel();
-	public static CRMController clientController = new ClientController(clientView, clientModel);
+	public static CRMController NewclientController = new NewClientController(clientView, clientModel);
 
 	// Create Clients module MVC objects
 	public static SwingView contactView = new ContactSwingView();
@@ -48,8 +48,8 @@ public class CRMMain {
 		mapModuleToIndex.put("Opportunities", 1);
 		mapModuleToIndex.put("Reports", 1);
 		
-		clientController.doInit();
-		clientController.setSwitchModuleListener((String s) -> CRMMain.switchToModule(s));
+		NewclientController.doInit();
+		NewclientController.setSwitchModuleListener((String s) -> CRMMain.switchToModule(s));
 
 		contactController.doInit();
 		contactController.setSwitchModuleListener((String s) -> CRMMain.switchToModule(s));
