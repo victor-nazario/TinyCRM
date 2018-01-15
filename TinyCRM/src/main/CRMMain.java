@@ -6,7 +6,7 @@ import java.util.Map;
 
 import controllers.CRMController;
 import controllers.NewClientController;
-import controllers.ContactController;
+import controllers.NewContactController;
 import models.CRMModel;
 import models.ClientModel;
 import models.ContactModel;
@@ -25,7 +25,7 @@ public class CRMMain {
 	public static SwingView contactView = new ContactSwingView();
 	public static CRMModel contactModel = new ContactModel();
 	// Contacts module has relationship with Clients module so we pass the Clients model object to the Contacts controller
-	public static CRMController contactController = new ContactController(contactView, contactModel, clientModel); 
+	public static CRMController NewcontactController = new NewContactController(contactView, contactModel, clientModel); 
 	
 	private static String currentModule;
 	private static SwingView currentView;
@@ -51,8 +51,8 @@ public class CRMMain {
 		NewclientController.doInit();
 		NewclientController.setSwitchModuleListener((String s) -> CRMMain.switchToModule(s));
 
-		contactController.doInit();
-		contactController.setSwitchModuleListener((String s) -> CRMMain.switchToModule(s));
+		NewcontactController.doInit();
+		NewcontactController.setSwitchModuleListener((String s) -> CRMMain.switchToModule(s));
 
 		//contactView.setModuleSelected(mapModuleToIndex.get("Contacts"));
 		switchToModule("Contacts"); // Initially open the Contacts module
