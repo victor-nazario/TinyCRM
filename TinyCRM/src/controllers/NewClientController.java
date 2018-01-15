@@ -50,8 +50,8 @@ public class NewClientController extends ClientController{
 	public void validateTelephone() {
 
 		String TelephoneInput = ((ClientTCRMView) getView()).getTextTelephone(); 
-		String alphaNumericPattern  = "\\\\d{10}|(?:\\\\d{3}-){2}\\\\d{4}|\\\\(\\\\d{3}\\\\)\\\\d{3}-?\\\\d{4}";
-		boolean TelMatches = Pattern.matches(alphaNumericPattern, TelephoneInput);
+		String TelPattern  = "^((?:\\\\(\\\\d{3}\\\\)|\\\\d{3})(?:\\\\.\\\\d{3}\\\\.\\\\d{4}|\\\\d{3}-\\\\d{3}-\\\\d{4}))";
+		boolean TelMatches = Pattern.matches(TelPattern, TelephoneInput);
 		
 		ClientTCRMView view = (ClientTCRMView) getView();
 		if (view.getTextTelephone().trim().length() == 0) {
@@ -65,10 +65,10 @@ public class NewClientController extends ClientController{
 	
 	public void validateEmail() {
 		
-		String EmailInput = ((ClientTCRMView) getView()).getTextEmail(); 
-		String alphaNumericPattern  = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\\\.[A-Z]{2,6}$";
+		String emailInput = ((ClientTCRMView) getView()).getTextEmail(); 
+		String emailPattern  = "^([_a-zA-Z0-9-]+(\\\\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\\\\.[a-zA-Z0-9-]+)*(\\\\.[a-zA-Z]{1,6}))?$";
 		
-		boolean MailMatches = Pattern.matches(alphaNumericPattern, EmailInput);
+		boolean MailMatches = Pattern.matches(emailPattern, emailInput);
 		
 		ClientTCRMView view = (ClientTCRMView) getView();
 		if (view.getTextEmail().trim().length() == 0) {
@@ -83,8 +83,8 @@ public class NewClientController extends ClientController{
 	public void validateWebsite() {
 		
 		String WebsiteInput = ((ClientTCRMView) getView()).getTextWebsite(); 
-		String alphaNumericPattern  = "[A-Za-z0-9](([_\\\\.\\\\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\\\\.\\\\-]?[a-zA-Z0-9]+)*)\\\\.([A-Za-z]{2,})";
-		boolean WebMatches = Pattern.matches(alphaNumericPattern, WebsiteInput);
+		String webPattern  = "^(http:\\/\\/|https:\\/\\/)?(www.)?([a-zA-Z0-9]+).[a-zA-Z0-9]*.[a-z]{3}.?([a-z]+)?$";
+		boolean WebMatches = Pattern.matches(webPattern, WebsiteInput);
 		
 		ClientTCRMView view = (ClientTCRMView) getView();
 		if (view.getTextWebsite().trim().length() == 0) {
@@ -92,7 +92,7 @@ public class NewClientController extends ClientController{
 		}
 		
 		if (!WebMatches) {
-			addValidationError("Website", "Company Website Must Only Use Alpha=Numeric Characters");
+			addValidationError("Website", "Company Website Must Only Use Alpha-Numeric Characters");
 		}
 	}
 	
@@ -108,7 +108,7 @@ public class NewClientController extends ClientController{
 		}
 		
 		if (!FacebookMatches) {
-			addValidationError("Facebook", "Company Facebook Must Only Use Alpha Numeric Characters");
+			addValidationError("Facebook", "Company Facebook Username Must Only Use Alpha Numeric Characters Without Spaces");
 		}
 	}
 	
