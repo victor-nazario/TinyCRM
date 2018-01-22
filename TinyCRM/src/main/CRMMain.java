@@ -36,7 +36,7 @@ public class CRMMain {
 	
 	public static SwingView OpportunityView = new OpportunitySwingView();
 	public static CRMModel OpportunityModel = new models.OpportunityModel();//What does the models. do?
-	public static CRMController OpportunityController = new OpportunityController(OpportunityView, contactModel); 
+	public static CRMController OpportunityController = new OpportunityController(OpportunityView, OpportunityModel,clientModel); 
 	
 
 	// mapModuleToView holds the view object for each module

@@ -1,3 +1,4 @@
+
 package models;
 
 import java.io.File;
@@ -7,38 +8,23 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import beans.CRMBean;
-import beans.ClientBean;
 import beans.OpportunityBean;
 
 public class OpportunityModel extends CRMModel {
-	
-	private static String OPPORTUNITY_FILE = "data/opportunity.tsv";
+
+	private static String OPPORTUNITIES_FILE = "data/opportunity.tsv";
 
 	public OpportunityModel() {
 		super();
 	}
-	
+
 	@Override
 	public void doInit() {
 		super.doInit();
-		ArrayList<CRMBean> beans = parseBeansFromFile(OPPORTUNITY_FILE);
+		ArrayList<CRMBean> beans = parseBeansFromFile(OPPORTUNITIES_FILE);
 		this.setList(beans);
-		setIndex(0);	}
-
-//	@Override
-//	public void doLeft() {
-//		super.doLeft();
-//	}
-
-//	@Override
-//	public void doRight() {
-//		super.doRight();
-//	}
-
-//	@Override
-//	public void doEdit() {
-//		super.doEdit();
-//	}
+		this.setIndex(0);
+	}
 
 	@Override
 	public void doAdd() {
@@ -47,69 +33,79 @@ public class OpportunityModel extends CRMModel {
 			id = ((OpportunityBean) this.getBean(this.getCount()-1)).getId() + 1;
 		}
 		this.getAllBeans().add(new OpportunityBean(id));
-		this.setIndex(this.getCount() - 1);
+		this.setIndex(this.getCount() - 1);  // New record becomes the current one
 	}
-
-//	@Override
-//	public void doDelete() {
-//		super.doDelete();
-//
-//	}
 
 	@Override
 	public void doSave() {
 		super.doSave();
-		saveBeansToFile(OPPORTUNITY_FILE);
+		saveBeansToFile(OPPORTUNITIES_FILE);
 	}
-	
-//	@Override
-//	public void doCancel() {
-//		super.doCancel();
-//	}
-	
+
 	public ArrayList<CRMBean> parseBeansFromFile(String filename) {
 		File inputFile = new File(filename);
 		try {
-			ArrayList<CRMBean> OpportunityBeans = new ArrayList<CRMBean>();
+			ArrayList<CRMBean> opportunityBeans = new ArrayList<CRMBean>();
 			Scanner inputScanner = new Scanner(inputFile);
 			inputScanner.nextLine();  // Ignore header line
-			int count = 0;
 			inputScanner.useDelimiter("[\t\n]");
 			while (inputScanner.hasNextLine()) {
 				String ID = inputScanner.next();
 				int id = Integer.parseInt(ID);
 				OpportunityBean newBean = new OpportunityBean(id);
-				String company = inputScanner.next();
-				newBean.setCompany(company);
-				String telephone = inputScanner.next();
-				newBean.setTelephone(telephone);
-				String email = inputScanner.next();
-				newBean.setEmail(email);
-				String website = inputScanner.next();
-				newBean.setWebsite(website);
-				String facebook = inputScanner.next();
-				newBean.setFacebook(facebook);
+				String client = inputScanner.next();
+				int clientId = Integer.parseInt(client);
+				newBean.setClient(clientId);
+				String saleDescription = inputScanner.next();
+				newBean.setSaleDescription(saleDescription);
+				String value = inputScanner.next();
+				newBean.setValue(value);
+				String date = inputScanner.next();
+				newBean.setDate(date);
+				String status = inputScanner.next();
+				newBean.setStatus(status);
 				inputScanner.nextLine();  // Skip over anything left in line
-				OpportunityBeans.add(newBean);
-				count++;
+				opportunityBeans.add(newBean);
 			}
 			inputScanner.close();
-			return OpportunityBeans;
+			return opportunityBeans;
 		}
 		catch (FileNotFoundException e) {
 			throw new RuntimeException("Fatal Error: Input file not Found");
 		}
 	}
-	
+
+	public String beanToFileLine(CRMBean bean) {
+
+		String result = "";
+		OpportunityBean ob = (OpportunityBean) bean;
+		result += ob.getId();
+		result += '\t';
+		if (ob.getClient() < 0) {
+			result += "-1";
+		}
+		else {
+			result += ""+ob.getClient();
+		}
+		result += '\t';
+		result += ob.getSaleDescription();
+		result += '\t';
+		result += ob.getValue();
+		result += '\t';
+		result += ob.getDate();
+		result += '\t';
+		result += ob.getStatus();
+		return result;
+	}
+
 	public void saveBeansToFile(String filename) {
-		
-		ArrayList<CRMBean> OpportunityBeans = getAllBeans();
+		ArrayList<CRMBean> opportunityBeans = getAllBeans();
 		File outputFile = new File(filename);
 		try {
 			PrintWriter out = new PrintWriter(outputFile);
 			// Print Header Line
-			out.println("TinyCRM Clients data file");
-			for (CRMBean bean : OpportunityBeans) {
+			out.println("TinyCRM Opportunities data file");
+			for (CRMBean bean : opportunityBeans) {
 				out.println(beanToFileLine(bean));
 			}
 			out.close();
@@ -118,25 +114,5 @@ public class OpportunityModel extends CRMModel {
 			throw new RuntimeException("Fatal Error: Output file not Found");
 		}
 	}
-	
-	public String beanToFileLine(CRMBean bean) {
-
-		String result = "";
-		OpportunityBean cb = (OpportunityBean) bean;
-		result += cb.getId();
-		result += '\t';
-		result += cb.getCompany();
-		result += '\t';
-		result += cb.getTelephone();
-		result += '\t';
-		result += cb.getEmail();
-		result += '\t';
-		result += cb.getWebsite();
-		result += '\t';
-		result += cb.getFacebook();
-		return result;
-		
-	}
 
 }
-

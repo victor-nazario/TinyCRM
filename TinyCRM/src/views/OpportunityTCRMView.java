@@ -1,5 +1,9 @@
 package views;
 
+import java.util.ArrayList;
+
+import beans.CRMBean;
+
 public interface OpportunityTCRMView extends TCRMView {
 
 	String getTextId();
@@ -27,5 +31,9 @@ public interface OpportunityTCRMView extends TCRMView {
 	void setErrorLoss(String errorLoss);
 	void setErrorWrittenNotice(String errorWrittenNotice);
 	void setErrorVerbalNotice(String errorVerbalNottice);
+	String getTextDescription();
+	String getTextDate();
+	String getTextValue();
+	void setSelectClientItems(ArrayList<CRMBean> allBeans);
 
 }

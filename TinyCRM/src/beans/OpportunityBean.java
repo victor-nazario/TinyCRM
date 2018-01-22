@@ -113,5 +113,20 @@ public class OpportunityBean extends CRMBean{
 		// TODO Auto-generated method stub
 		return date;
 	}
+
+	public long getClient() {
+		// TODO Auto-generated method stub
+		return id;
+	}
+
+	public String getStatus() {
+		// TODO Auto-generated method stub
+		return status;
+	}
+
+	public String getSaleDescription() {
+		// TODO Auto-generated method stub
+		return SaleDescription;
+	}
 	
 }
