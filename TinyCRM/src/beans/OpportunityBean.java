@@ -1,72 +1,74 @@
+
 package beans;
 
-public class OpportunityBean extends CRMBean{
+public class OpportunityBean extends CRMBean {
 
-	private String company;
-	private String telephone;
-	private String email;
-	private String website;
-	private String facebook;
-	private String client;
-	private String SaleDescription;
+	
+	private String description;
 	private String value;
-	private String date;
+	private String closingdate;
+	private long client;
 	private String status;
+	
+	
 	
 	public OpportunityBean(long id) {
 		super(id);
-		company = "";
-		telephone = "";
-		email = "";
-		facebook = "";
+		description = "";
+		value = "";
+		closingdate = "";
+		client = -1;
+		status = "";
+		// TODO Auto-generated constructor stub
 	}
 	
-	public String getCompany() {
-		return company;
+	
+	
+	public long getClient() {
+		return client;
 	}
 	
-	public void setCompany(String company) {
-		this.company = company;
+	public void setClient(long id) {
+		this.client = id;
 	}
 	
-	public String getTelephone() {
-		return telephone;
+	public String getSaleDescription() {
+		return description;
 	}
 	
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
+	public void setSaleDescription(String description) {
+		this.description = description;
 	}
 	
-	public String getEmail() {
-		return email;
+	public String getValue() {
+		return value;
 	}
 	
-	public void setEmail(String email) {
-		this.email = email;
+	public void setValue(String value) {
+	this.value = value;
+    }
+	
+	public String getDate() {
+		return closingdate;
 	}
 	
-	public String getWebsite() {
-		return website;
+	public void setDate(String closingdate) {
+		this.closingdate = closingdate;
 	}
 	
-	public void setWebsite(String website) {
-		this.website = website;
+	public String getStatus() {
+		return status;
 	}
 	
-	public String getFacebook() {
-		return facebook;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
-	public void setFacebook(String facebook) {
-		this.facebook = facebook;
-	}
 	
+	@Override
 	public String getDescription() {
-		return company;
-	}
-	
-	public String toString() {
-		return this.getId() + ": " + this.getCompany();
+		// TODO Auto-generated method stub
+		return description;
 	}
 	
 	public boolean equals(Object o) {
@@ -77,56 +79,8 @@ public class OpportunityBean extends CRMBean{
 		return false;
 	}
 
-	public void setClient(long id) {
-		// TODO Auto-generated method stub
-		this.id=id;
+	@Override
+	public String toString() {
+		return this.getId() + ": " + this.getSaleDescription();
 	}
-
-	public void setSaleDescription(String text) {
-		// TODO Auto-generated method stub
-		this.SaleDescription = text;
-	}
-
-	public void setValue(String text) {
-		// TODO Auto-generated method stub
-		this.value = text;
-	}
-
-	public void setDate(String text) {
-		// TODO Auto-generated method stub
-		this.date = text;
-		
-	}
-
-	public void setStatus(String selectedItem) {
-		// TODO Auto-generated method stub
-		this.status = selectedItem;
-	}
-
-	public String getValue() {
-		// TODO Auto-generated method stub
-		return value;
-		
-	}
-
-	public String getDate() {
-		// TODO Auto-generated method stub
-		return date;
-	}
-
-	public long getClient() {
-		// TODO Auto-generated method stub
-		return id;
-	}
-
-	public String getStatus() {
-		// TODO Auto-generated method stub
-		return status;
-	}
-
-	public String getSaleDescription() {
-		// TODO Auto-generated method stub
-		return SaleDescription;
-	}
-	
 }
