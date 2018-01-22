@@ -7,11 +7,13 @@ import java.util.Map;
 import controllers.CRMController;
 import controllers.NewClientController;
 import controllers.NewContactController;
+import controllers.OpportunityController;
 import models.CRMModel;
 import models.ClientModel;
 import models.ContactModel;
 import swingViews.ClientSwingView;
 import swingViews.ContactSwingView;
+import swingViews.OpportunitySwingView;
 import swingViews.SwingView;
 
 public class CRMMain {
@@ -29,6 +31,13 @@ public class CRMMain {
 	
 	private static String currentModule;
 	private static SwingView currentView;
+	
+	//Create Opportunity module MVC objects
+	
+	public static SwingView OpportunityView = new OpportunitySwingView();
+	public static CRMModel OpportunityModel = new models.OpportunityModel();//What does the models. do?
+	public static CRMController OpportunityController = new OpportunityController(OpportunityView, contactModel); 
+	
 
 	// mapModuleToView holds the view object for each module
 	public static Map<String,SwingView> mapModuleToView = new HashMap<String,SwingView>();
@@ -39,9 +48,12 @@ public class CRMMain {
 
 		contactView.setModuleSelectionItems(new String[] {"Contacts", "Clients", "Opportunities", "Reports"});
 		clientView.setModuleSelectionItems(new String[] {"Contacts", "Clients", "Opportunities", "Reports"});
-
+		OpportunityView.setModuleSelectionItems(new String[] {"Contacts", "Clients", "Opportunities", "Reports"});
+		
+		
 		mapModuleToView.put("Contacts", contactView);
 		mapModuleToView.put("Clients", clientView);
+		mapModuleToView.put("Opportunity", OpportunityView);
 
 		mapModuleToIndex.put("Contacts", 0);
 		mapModuleToIndex.put("Clients", 1);
@@ -53,9 +65,14 @@ public class CRMMain {
 
 		NewcontactController.doInit();
 		NewcontactController.setSwitchModuleListener((String s) -> CRMMain.switchToModule(s));
+		
+		
+		
+		OpportunityController.doInit();
+		OpportunityController.setSwitchModuleListener((String s) -> CRMMain.switchToModule(s));
 
 		//contactView.setModuleSelected(mapModuleToIndex.get("Contacts"));
-		switchToModule("Contacts"); // Initially open the Contacts module
+		switchToModule("Clients"); // Initially open the Contacts module
 
 	}
 

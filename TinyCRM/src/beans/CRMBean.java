@@ -2,7 +2,7 @@ package beans;
 
 public abstract class CRMBean {
 	
-	private long id;  // Unique ID among all beans of a given type
+	public long id;  // Unique ID among all beans of a given type
 	
 	public CRMBean(long id) {
 		this.id = id;
