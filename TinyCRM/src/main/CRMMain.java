@@ -72,7 +72,7 @@ public class CRMMain {
 		OpportunityController.setSwitchModuleListener((String s) -> CRMMain.switchToModule(s));
 
 		//contactView.setModuleSelected(mapModuleToIndex.get("Contacts"));
-		switchToModule("Clients"); // Initially open the Contacts module
+		switchToModule("Contacts"); // Initially open the Contacts module
 
 	}
 

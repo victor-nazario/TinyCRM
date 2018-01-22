@@ -411,29 +411,6 @@ public class OpportunitySwingView extends SwingView implements OpportunityTCRMVi
 		return null;
 	}
 
-	@Override
-	public String getTextTelephone() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getTextEmail() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getTextWebsite() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getTextFacebook() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public void setTextCompany(String textCompany) {
@@ -441,29 +418,7 @@ public class OpportunitySwingView extends SwingView implements OpportunityTCRMVi
 		
 	}
 
-	@Override
-	public void setTextTelephone(String textTelephoe) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setTextEmail(String textEmail) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setTextWebsite(String textWebsite) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setTextFacebook(String textFacebook) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	@Override
 	public String getErrorCompany() {
@@ -471,29 +426,7 @@ public class OpportunitySwingView extends SwingView implements OpportunityTCRMVi
 		return null;
 	}
 
-	@Override
-	public String getErrorTelephone() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getErrorEmail() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getErrorWebsite() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getErrorFacebook() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	@Override
 	public void setErrorCompany(String errorCompany) {
@@ -501,29 +434,104 @@ public class OpportunitySwingView extends SwingView implements OpportunityTCRMVi
 		
 	}
 
+	
 	@Override
-	public void setErrorTelephone(String errorFirstName) {
+	public String getTextGain() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getTextLoss() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getTextWrittenNotice() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getTextVerbalNotice() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setTextGain(String textGain) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void setErrorEmail(String errorEmail) {
+	public void setTextLoss(String textLoss) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void setErrorWebsite(String errorWebsite) {
+	public void setTextWrittenNotice(String textWrittenNotice) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void setErrorFacebook(String errorFacebook) {
+	public void setTextVerbalNottice(String textVerbalNotice) {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public String getErrorGain() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getErrorLoss() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getErrorWrittenNotice() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getErrorVerbalNottice() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setErrorGain(String errorGain) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setErrorLoss(String errorLoss) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setErrorWrittenNotice(String errorWrittenNotice) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setErrorVerbalNotice(String errorVerbalNottice) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 
 	
 

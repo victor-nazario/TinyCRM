@@ -4,28 +4,28 @@ public interface OpportunityTCRMView extends TCRMView {
 
 	String getTextId();
 	String getTextCompany();
-	String getTextTelephone();
-	String getTextEmail();
-	String getTextWebsite();
-	String getTextFacebook();
+	String getTextGain();
+	String getTextLoss();
+	String getTextWrittenNotice();
+	String getTextVerbalNotice();
 	
 	void setTextId(String textId);
 	void setTextCompany(String textCompany);
-	void setTextTelephone(String textTelephoe);
-	void setTextEmail(String textEmail);
-	void setTextWebsite(String textWebsite);
-	void setTextFacebook(String textFacebook);
+	void setTextGain(String textGain);
+	void setTextLoss(String textLoss);
+	void setTextWrittenNotice(String textWrittenNotice);
+	void setTextVerbalNottice(String textVerbalNotice);
 	
 	String getErrorCompany();
-	String getErrorTelephone();
-	String getErrorEmail();
-	String getErrorWebsite();
-	String getErrorFacebook();
+	String getErrorGain();
+	String getErrorLoss();
+	String getErrorWrittenNotice();
+	String getErrorVerbalNottice();
 
 	void setErrorCompany(String errorCompany);
-	void setErrorTelephone(String errorFirstName);
-	void setErrorEmail(String errorEmail);
-	void setErrorWebsite(String errorWebsite);
-	void setErrorFacebook(String errorFacebook);
+	void setErrorGain(String errorGain);
+	void setErrorLoss(String errorLoss);
+	void setErrorWrittenNotice(String errorWrittenNotice);
+	void setErrorVerbalNotice(String errorVerbalNottice);
 
 }
