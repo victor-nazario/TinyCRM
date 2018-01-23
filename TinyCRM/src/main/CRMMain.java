@@ -90,7 +90,7 @@ public class CRMMain {
 			nextView.setMessagesText("Welcome to TinyCRM: " + moduleName);
 
 			nextView.setVisible(true);
-			if (currentView != null) currentView.setVisible(false);
+			if (currentView != null) currentView.setVisible(false); 
 			
 			currentModule = moduleName;
 			currentView = nextView;
