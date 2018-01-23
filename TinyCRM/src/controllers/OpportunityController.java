@@ -112,8 +112,8 @@ public class OpportunityController extends CRMController {
 		if (view.getTextValue().trim().length() == 0) {
 			addValidationError("Value", "Empty Value. Required Field.");
 		}
-		else if(!view.getTextValue().matches("\\$\\d+(\\.\\d{2})?")) {
-			addValidationError("Value", "Enter price in dollars and cents (Preceded by $).");
+		else if(!view.getTextValue().matches("[0-9.]*")) {
+			addValidationError("Value", "Enter price in dollars and cents.");
 		}
 	}
 	

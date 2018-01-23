@@ -11,6 +11,7 @@ import controllers.OpportunityController;
 import models.CRMModel;
 import models.ClientModel;
 import models.ContactModel;
+import models.OpportunityModel;
 import swingViews.ClientSwingView;
 import swingViews.ContactSwingView;
 import swingViews.OpportunitySwingView;
@@ -29,14 +30,16 @@ public class CRMMain {
 	// Contacts module has relationship with Clients module so we pass the Clients model object to the Contacts controller
 	public static CRMController NewcontactController = new NewContactController(contactView, contactModel, clientModel); 
 	
+	//Create Opportunity module MVC objects
+	
+	public static SwingView opportunityView = new OpportunitySwingView();
+	public static CRMModel opportunityModel = new OpportunityModel();
+	public static CRMController OpportunityController = new OpportunityController(opportunityView, opportunityModel,clientModel); 
+		
+	
 	private static String currentModule;
 	private static SwingView currentView;
 	
-	//Create Opportunity module MVC objects
-	
-	public static SwingView OpportunityView = new OpportunitySwingView();
-	public static CRMModel OpportunityModel = new models.OpportunityModel();//What does the models. do?
-	public static CRMController OpportunityController = new OpportunityController(OpportunityView, OpportunityModel,clientModel); 
 	
 
 	// mapModuleToView holds the view object for each module
@@ -46,18 +49,18 @@ public class CRMMain {
 
 	public static void main (String[] args) {
 
-		contactView.setModuleSelectionItems(new String[] {"Contacts", "Clients", "Opportunities", "Reports"});
-		clientView.setModuleSelectionItems(new String[] {"Contacts", "Clients", "Opportunities", "Reports"});
-		OpportunityView.setModuleSelectionItems(new String[] {"Contacts", "Clients", "Opportunities", "Reports"});
+		contactView.setModuleSelectionItems(new String[] {"Contacts", "Clients", "Opportunity", "Reports"});
+		clientView.setModuleSelectionItems(new String[] {"Contacts", "Clients", "Opportunity", "Reports"});
+		opportunityView.setModuleSelectionItems(new String[] {"Contacts", "Clients", "Opportunity", "Reports"});
 		
 		
 		mapModuleToView.put("Contacts", contactView);
 		mapModuleToView.put("Clients", clientView);
-		mapModuleToView.put("Opportunity", OpportunityView);
+		mapModuleToView.put("Opportunity", opportunityView);
 
 		mapModuleToIndex.put("Contacts", 0);
 		mapModuleToIndex.put("Clients", 1);
-		mapModuleToIndex.put("Opportunities", 1);
+		mapModuleToIndex.put("Opportunity", 2);
 		mapModuleToIndex.put("Reports", 1);
 		
 		NewclientController.doInit();
@@ -68,7 +71,7 @@ public class CRMMain {
 		
 		
 		
-		OpportunityController.doInit();
+		//OpportunityController.doInit();
 		OpportunityController.setSwitchModuleListener((String s) -> CRMMain.switchToModule(s));
 
 		//contactView.setModuleSelected(mapModuleToIndex.get("Contacts"));
