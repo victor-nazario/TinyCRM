@@ -1,2 +1,2 @@
 # TinyCRM
-Tiny Customer Relationship Manager
+A CRM abstraction - Tiny Customer Relationship Manager written in Java
